@@ -1,0 +1,2 @@
+ALTER TABLE tbl_pedido  ADD CONSTRAINT fk_cliente FOREIGN KEY (id_cliente) REFERENCES tbl_cliente (id);
+ALTER TABLE tbl_produto  ADD CONSTRAINT fk_pedido FOREIGN KEY (pedido_id) REFERENCES tbl_pedido (codigo);

@@ -13,7 +13,7 @@ public class ProcessarValidacaoQuantidadePedidos extends Processador {
     @Override
     public List<Pedido> processar(List<Pedido> pedidos) {
         if(pedidos.size() < 1 || pedidos.size() > 10){
-            throw new BusinessException("A quantidade de pedidos processados não devem ser menor que 1 ou maior que 10");
+            throw new BusinessException("Quantidade de pedidos","A quantidade de pedidos processados não deve ser menor que 1 ou maior que 10");
         }
         return next.processar(pedidos);
     }

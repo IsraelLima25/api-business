@@ -59,6 +59,18 @@ public class Pedido {
         return valorDesconto;
     }
 
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
     public void adicionarDesconto(BigDecimal valorDesconto) {
         this.valorDesconto = valorDesconto;
     }

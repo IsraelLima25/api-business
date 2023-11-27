@@ -1,13 +1,11 @@
-package br.com.ilima.apibusiness.domain.exception;
+package br.com.ilima.apibusiness.data.exception;
 
-public class BusinessException extends RuntimeException {
-
-    private static final long serialVersionUID = 1L;
+public class CampoInvalido {
 
     private String campo;
     private String mensagem;
 
-    public BusinessException(String campo, String mensagem) {
+    public CampoInvalido(String campo, String mensagem) {
         this.campo = campo;
         this.mensagem = mensagem;
     }
@@ -19,6 +17,4 @@ public class BusinessException extends RuntimeException {
     public String getMensagem() {
         return mensagem;
     }
-
-
 }

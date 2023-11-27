@@ -1,6 +1,5 @@
 package br.com.ilima.apibusiness.domain.usecase;
 
-import br.com.ilima.apibusiness.domain.VO.Cpf;
 import br.com.ilima.apibusiness.domain.VO.DataCadastro;
 import br.com.ilima.apibusiness.domain.entity.Cliente;
 import br.com.ilima.apibusiness.domain.entity.Pedido;
@@ -11,8 +10,6 @@ import br.com.ilima.apibusiness.domain.usecase.pedido.ProcessadorPedidoUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
@@ -24,7 +21,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class ProcessadorPedidoUseCaseTest {
+class ProcessadorPedidoUseCaseTestModel {
 
     @Mock
     PedidoRepository pedidoRepository;
@@ -38,10 +35,7 @@ class ProcessadorPedidoUseCaseTest {
             Pedido pedido = builder
                     .setCodigo(0101L)
                     .setCliente(
-                            new Cliente.Builder()
-                                    .setNome("Sizenando")
-                                    .setCpf(new Cpf("21158648081"))
-                                    .build()
+                            new Cliente(1L, "Sizenando")
                     )
                     .setProdutos(
                             List.of(
@@ -79,10 +73,7 @@ class ProcessadorPedidoUseCaseTest {
         Pedido pedido = builderPedido
                 .setCodigo(0101L)
                 .setCliente(
-                        new Cliente.Builder()
-                                .setNome("Sizenando")
-                                .setCpf(new Cpf("21158648081"))
-                                .build()
+                        new Cliente(1L, "Sizenando")
                 )
                 .setProdutos(new ArrayList<>())
                 .setDataCadastro(new DataCadastro(LocalDate.of(2023, 10, 15)))
@@ -114,10 +105,7 @@ class ProcessadorPedidoUseCaseTest {
         Pedido pedido = builderPedido
                 .setCodigo(0101L)
                 .setCliente(
-                        new Cliente.Builder()
-                                .setNome("Sizenando")
-                                .setCpf(new Cpf("21158648081"))
-                                .build()
+                        new Cliente(1L,"Sizenando")
                 )
                 .setProdutos(new ArrayList<>())
                 .setDataCadastro(new DataCadastro(LocalDate.of(2023, 10, 15)))
@@ -148,10 +136,7 @@ class ProcessadorPedidoUseCaseTest {
         Pedido pedido = builderPedido
                 .setCodigo(0101L)
                 .setCliente(
-                        new Cliente.Builder()
-                                .setNome("Sizenando")
-                                .setCpf(new Cpf("21158648081"))
-                                .build()
+                        new Cliente(1L, "Sizenando")
                 )
                 .setProdutos(new ArrayList<>())
                 .setDataCadastro(new DataCadastro(LocalDate.of(2023, 10, 15)))

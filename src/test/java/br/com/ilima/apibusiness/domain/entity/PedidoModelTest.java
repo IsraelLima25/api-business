@@ -1,6 +1,5 @@
 package br.com.ilima.apibusiness.domain.entity;
 
-import br.com.ilima.apibusiness.domain.VO.Cpf;
 import br.com.ilima.apibusiness.domain.VO.DataCadastro;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PedidoTest {
+class PedidoModelTest {
 
     @Test
     void dadoPedidoQuandoDataCadastroNaoEnviadaEntaoDataCadastroDeveSerIgualADataAtual(){
@@ -20,10 +19,7 @@ class PedidoTest {
         Pedido pedido = builder
                 .setCodigo(0101L)
                 .setCliente(
-                        new Cliente.Builder()
-                                .setNome("Sizenando")
-                                .setCpf(new Cpf("21158648081"))
-                                .build()
+                        new Cliente(1L,"Sizenando")
                 )
                 .setProdutos(
                         List.of(
@@ -48,10 +44,7 @@ class PedidoTest {
         Pedido pedido = builder
                 .setCodigo(0101L)
                 .setCliente(
-                        new Cliente.Builder()
-                                .setNome("Sizenando")
-                                .setCpf(new Cpf("21158648081"))
-                                .build()
+                        new Cliente(1L,"Sizenando")
                 )
                 .setProdutos(
                         List.of(
@@ -77,10 +70,7 @@ class PedidoTest {
         Pedido pedido = builderPedido
                 .setCodigo(0101L)
                 .setCliente(
-                        new Cliente.Builder()
-                                .setNome("Sizenando")
-                                .setCpf(new Cpf("21158648081"))
-                                .build()
+                        new Cliente(1L,"Sizenando")
                 )
                 .setProdutos(
                         List.of(

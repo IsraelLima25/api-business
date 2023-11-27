@@ -1,13 +1,13 @@
 package br.com.ilima.apibusiness.domain.exception;
 
-public class BusinessException extends RuntimeException {
+public class NotFoundException extends RuntimeException{
 
     private static final long serialVersionUID = 1L;
 
     private String campo;
     private String mensagem;
 
-    public BusinessException(String campo, String mensagem) {
+    public NotFoundException(String campo, String mensagem) {
         this.campo = campo;
         this.mensagem = mensagem;
     }
@@ -19,6 +19,4 @@ public class BusinessException extends RuntimeException {
     public String getMensagem() {
         return mensagem;
     }
-
-
 }

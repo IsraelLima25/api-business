@@ -1,5 +1,6 @@
 package br.com.ilima.apibusiness.data.dto;
 
+import br.com.ilima.apibusiness.domain.entity.Produto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -15,4 +16,17 @@ public record ProdutoPedidoFormDTO(
     BigDecimal valor,
     int quantidade
 
-){ }
+){
+
+    public Produto toProduto(){
+
+        Produto.Builder builder = new Produto.Builder();
+
+        Produto produto = builder.setNome(nome)
+                .setQuantidade(quantidade)
+                .setValor(valor)
+                .build();
+
+        return produto;
+    }
+}

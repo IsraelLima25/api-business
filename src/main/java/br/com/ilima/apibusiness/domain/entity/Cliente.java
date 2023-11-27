@@ -1,34 +1,20 @@
 package br.com.ilima.apibusiness.domain.entity;
 
-import br.com.ilima.apibusiness.domain.VO.Cpf;
-
 public class Cliente {
 
+    private Long id;
     private String nome;
-    private Cpf cpf;
 
-    private Cliente(String nome, Cpf cpf){
+    public Cliente(Long id, String nome){
         this.nome = nome;
-        this.cpf = cpf;
+        this.id = id;
     }
 
-    public static class Builder {
+    public String getNome() {
+        return nome;
+    }
 
-        private String nome;
-        private Cpf cpf;
-
-        public Builder setNome(String nome){
-            this.nome = nome;
-            return this;
-        }
-
-        public Builder setCpf(Cpf cpf){
-            this.cpf = cpf;
-            return this;
-        }
-
-        public Cliente build(){
-            return new Cliente(nome, cpf);
-        }
+    public Long getId() {
+        return id;
     }
 }

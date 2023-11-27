@@ -11,7 +11,7 @@ public class Produto {
     private Produto(String nome, BigDecimal valor, Integer quantidade){
         this.nome = nome;
         this.valor = valor;
-        if(quantidade == null){
+        if(quantidade == 0 || quantidade == null){
             this.quantidade = 1;
         }else{
             this.quantidade = quantidade;
@@ -24,6 +24,10 @@ public class Produto {
 
     public Integer getQuantidade() {
         return quantidade;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public static class Builder {

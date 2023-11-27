@@ -1,0 +1,10 @@
+INSERT INTO tbl_cliente(nome) VALUES ('Laeha');
+INSERT INTO tbl_cliente(nome) VALUES ('Kihus');
+INSERT INTO tbl_cliente(nome) VALUES ('Lebol');
+INSERT INTO tbl_cliente(nome) VALUES ('Tufar');
+INSERT INTO tbl_cliente(nome) VALUES ('Lyalo');
+INSERT INTO tbl_cliente(nome) VALUES ('Narifoys');
+INSERT INTO tbl_cliente(nome) VALUES ('Vetoyxa');
+INSERT INTO tbl_cliente(nome) VALUES ('Tigua');
+INSERT INTO tbl_cliente(nome) VALUES ('Xyosi');
+INSERT INTO tbl_cliente(nome) VALUES ('Fagel');
