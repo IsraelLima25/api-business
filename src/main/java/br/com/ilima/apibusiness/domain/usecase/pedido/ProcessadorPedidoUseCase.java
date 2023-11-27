@@ -9,7 +9,6 @@ public class ProcessadorPedidoUseCase {
 
     public PedidoRepository pedidoRepository;
 
-    public ProcessadorPedidoUseCase(){ }
     public ProcessadorPedidoUseCase(PedidoRepository pedidoRepository){
         this.pedidoRepository = pedidoRepository;
     }

@@ -6,8 +6,14 @@ import br.com.ilima.apibusiness.domain.entity.Cliente;
 import br.com.ilima.apibusiness.domain.entity.Pedido;
 import br.com.ilima.apibusiness.domain.entity.Produto;
 import br.com.ilima.apibusiness.domain.exception.BusinessException;
+import br.com.ilima.apibusiness.domain.repository.PedidoRepository;
 import br.com.ilima.apibusiness.domain.usecase.pedido.ProcessadorPedidoUseCase;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -17,7 +23,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class ProcessadorPedidoUseCaseTest {
+
+    @Mock
+    PedidoRepository pedidoRepository;
 
     @Test
     void dadoProcessamentoPedidoQuandoQuantidadeMaiorQueDezEntaoBusinessExceptionDeveSerLancada(){
@@ -48,7 +58,7 @@ class ProcessadorPedidoUseCaseTest {
         }
 
         assertThrows(BusinessException.class, () -> {
-            ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase();
+            ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase(pedidoRepository);
             processadorPedidoUseCase.processar(pedidos);
         });
     }
@@ -57,7 +67,7 @@ class ProcessadorPedidoUseCaseTest {
     void dadoProcessamentoPedidoQuandoQuantidadeMenorQueUmEntaoBusinessExceptionDeveSerLancada(){
         List<Pedido> pedidos = new ArrayList<>();
         assertThrows(BusinessException.class, () -> {
-            ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase();
+            ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase(pedidoRepository);
             processadorPedidoUseCase.processar(pedidos);
         });
     }
@@ -88,7 +98,7 @@ class ProcessadorPedidoUseCaseTest {
             );
         }
 
-        ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase();
+        ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase(pedidoRepository);
         processadorPedidoUseCase.processar(List.of(pedido));
 
         assertEquals(6, pedido.getQuantidadeProduto());
@@ -122,7 +132,7 @@ class ProcessadorPedidoUseCaseTest {
                             .build()
             );
         }
-        ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase();
+        ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase(pedidoRepository);
         processadorPedidoUseCase.processar(List.of(pedido));
 
         assertEquals(11, pedido.getQuantidadeProduto());
@@ -156,7 +166,7 @@ class ProcessadorPedidoUseCaseTest {
                             .build()
             );
         }
-        ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase();
+        ProcessadorPedidoUseCase processadorPedidoUseCase = new ProcessadorPedidoUseCase(pedidoRepository);
         processadorPedidoUseCase.processar(List.of(pedido));
 
         assertEquals(4, pedido.getQuantidadeProduto());
