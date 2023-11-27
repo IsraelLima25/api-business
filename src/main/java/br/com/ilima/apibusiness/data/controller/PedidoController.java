@@ -6,6 +6,8 @@ import br.com.ilima.apibusiness.data.model.ClienteModel;
 import br.com.ilima.apibusiness.domain.entity.Pedido;
 import br.com.ilima.apibusiness.domain.exception.NotFoundException;
 import br.com.ilima.apibusiness.domain.usecase.pedido.ProcessadorPedidoUseCase;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import jakarta.validation.Valid;
@@ -35,8 +37,15 @@ public class PedidoController {
 
     @Transactional
     @PostMapping(consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Pedido processado com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Cliente pedido não encontrado"),
+            @ApiResponse(responseCode = "500", description = "Foi gerada uma exceção"),
+    })
     public ResponseEntity<Void> enviarPedidos(@RequestBody List<@Valid PedidoFormDTO> pedidosFormDTO ){
-
+        
+        // TODO add Logger
+        
         List<Pedido> pedidos = pedidosFormDTO.stream().map(pedidosDTO -> {
             Optional<ClienteModel> possivelCliente = clienteDataSourceLocal.buscarPorId(pedidosDTO.cliente().codigo());
             if (!possivelCliente.isPresent()) {
