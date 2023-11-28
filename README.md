@@ -125,7 +125,7 @@ docker-compose up -d
 ````
 
 # Observações: 
-- No cenário de execução com docker ficar atento para possíveis conflitos naa definição das portas host/container.
+- No cenário de execução com docker ficar atento para possíveis conflitos na definição das portas host/container.
 - Para executar o projeto localhost será necessário server mysql local ou usando o próprio docker compose subindo a base de dados pelo container
 
 # Autor
