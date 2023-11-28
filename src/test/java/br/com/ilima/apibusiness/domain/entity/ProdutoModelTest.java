@@ -13,6 +13,7 @@ class ProdutoModelTest {
         Produto.Builder builder = new Produto.Builder();
         Produto produto = builder.setValor(new BigDecimal(1000.0))
                 .setNome("Intel Core i5")
+                .setQuantidade(0)
                 .build();
 
         assertEquals(1, produto.getQuantidade());
